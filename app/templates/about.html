@@ -1,0 +1,41 @@
+<!-- Western -->
+{% extends "base.html" %}
+
+
+{% block content %}
+
+<head>
+    <style>
+    .about {
+      padding: 8px;
+    }
+    
+    h1 {
+      text-align: center;
+      text-transform: uppercase;
+      color: #49D3CC;
+      
+    }
+    
+    p {
+      text-indent: 50px;
+      text-align: justify;
+      letter-spacing: 3px;
+      padding-left: 100px;
+      padding-right: 100px;
+    }
+    
+    a {
+      text-decoration: none;
+      color: #008CBA;
+    }
+    </style>
+    </head>
+    <div class = "about">
+        <h1>About</h1>
+        <p>DayToDay is a calendar aimed for students to keep themselves organized. With massive amounts of workload or uncertain
+           thoughts on due assignments. DayToDay will help yourself be organized. After you create your first event, you will be
+           able to edit it accordingly.<a target="_blank" href="{{ url_for('create') }}"> Start!</a></p>
+    </div>
+
+{% endblock %}

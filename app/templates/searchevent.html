@@ -1,0 +1,54 @@
+<!-- Amy -->
+{% extends "base.html" %}
+
+{% block content %}
+
+	<div class="row d-flex justify-content-center">
+		<h1>Search Result</h1>
+	</div>
+	<br>
+<p>
+
+	{% set cs = namespace(counter=0) %}
+	<div class="row d-flex justify-content-center">
+		<table class="table", style="width:90%">
+			<thead class="thead-dark">
+				<tr>
+					<th class="text-center">Event</th>
+					<th class="text-center">Date</th>
+					<th class="text-center">Time</th>
+					<th class="text-center"></th>
+				</tr>
+			</thead>
+
+			{% for data in e %}
+				<tr>
+					<td class="text-center">{{ data.event_name }}</td>
+					<td class="text-center">{{ data.event_date.date() }}</td>
+					<td class="text-center">{{ data.event_timeStart.time().strftime("%I:%M%p") }} - {{ data.event_timeEnd.time().strftime("%I:%M%p") }}</td>
+					<td class="text-center">
+						<a href="/edit/{{data.id}}"><button class="btn btn-outline-primary" type="submit">Edit</button></a>
+						<a href="/delete/{{data.id}}"><button class="btn btn-outline-danger"type="submit">Delete</button></a>
+					</td>
+				</tr>
+				{% set cs.counter=cs.counter+1 %}
+			{% endfor %}
+		</table>
+	</div>
+
+	<div class="row d-flex justify-content-center">
+		<table class="table", style="width:90%">
+			<tr>
+				{% if cs.counter==1 %}
+					<th class="text-center", colspan="3">{{cs.counter}} event found</th>
+				{% else %}
+					<th class="text-center", colspan="3">{{cs.counter}} events found</th>
+				{% endif %}
+			</tr>
+		</table>
+	</div>
+
+</p>
+
+
+{% endblock %}:

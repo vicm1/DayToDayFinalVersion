@@ -1,0 +1,30 @@
+<!-- Amy -->
+{% extends "base.html" %}
+
+{% block content %}
+
+	<div class="row d-flex justify-content-center">			
+		<h1>Search</h1>
+	</div>
+    <form action="" method="post">
+        {{ form.hidden_tag() }}
+		<div class="row d-flex justify-content-center">		
+			<p>
+			<strong>
+				<p style = "font-family:courier;">	
+				{{ form.eventName.label }}<br>
+				{{ form.eventName(size=32, class_="form-control col-md-32", placeholder="Event Name")}}
+				</strong>
+			</p>
+		</p>
+		</div
+		<br>
+		<div class="row d-flex justify-content-center">		
+			<p>
+				<p style = "font-family:courier;">	
+				{{ form.submit(class="btn btn-primary") }}
+			</p>
+		</p>
+		</div>
+    </form>
+{% endblock %}
